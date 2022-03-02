@@ -8,7 +8,9 @@ class BooksController < ApplicationController
   end
 
   def index
-    @books = Book.find(Favorite.group(:book_id).order('count(book_id) desc').pluck(:book_id))
+    @books = Book.all.sort {|a,b|
+     b.favorites.count <=>
+     a.favorites.count }
     @book = Book.new
   end
 
