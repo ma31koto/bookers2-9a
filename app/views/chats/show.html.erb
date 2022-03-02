@@ -12,6 +12,11 @@
                 <% end %>
               <% end %>
             </div>
+            
+            <div class="errors">
+              <%= render "layouts/errors", obj: @chat %>
+            </div>
+            
 
             <%= form_with model: @chat, local: false do |f| %>
               <%= f.text_field :message %>
